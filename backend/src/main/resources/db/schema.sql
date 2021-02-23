@@ -1,0 +1,23 @@
+CREATE DATABASE IF NOT EXISTS lewshop;
+USE lewshop;
+
+CREATE TABLE IF NOT EXISTS product_category (
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NULL DEFAULT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS product (
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  sku VARCHAR(255) DEFAULT NULL,
+  name VARCHAR(255) DEFAULT NULL,
+  description VARCHAR(255) DEFAULT NULL,
+  unit_price DECIMAL(13,2) DEFAULT NULL,
+  image_url VARCHAR(255) DEFAULT NULL,
+  active BIT DEFAULT 1,
+  units_in_stock INT DEFAULT NULL,
+   date_created DATETIME(6) DEFAULT NULL,
+  last_updated DATETIME(6) DEFAULT NULL,
+  category_id BIGINT NOT NULL,
+  KEY fk_category (category_id),
+  CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES product_category (id)
+) ENGINE=InnoDB;
