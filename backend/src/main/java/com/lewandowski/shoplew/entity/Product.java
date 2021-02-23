@@ -47,6 +47,6 @@ public class Product extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
-    private ProductCategory category;
+    private Category category;
 
 }

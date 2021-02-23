@@ -11,7 +11,7 @@ import java.util.Set;
 @Table(name = "product_category")
 @Getter @Setter
 @NoArgsConstructor
-public class ProductCategory extends BaseEntity {
+public class Category extends BaseEntity {
 
     @Column(name = "name")
     private String name;
