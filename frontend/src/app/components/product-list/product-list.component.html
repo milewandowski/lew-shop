@@ -1,14 +1,9 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let product of products">
-            <td>{{ product.name }}</td>
-            <td>{{ product.unitPrice | currency:'EUR' }}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-5 text-center" *ngFor="let product of products">
+            <img src="{{ product.imageUrl }}">
+            <p class="mb-0">{{ product.name }}</p>
+            <p>{{ product.unitPrice | currency:'EUR' }}</p>
+        </div>
+    </div>
+</div>
