@@ -11,7 +11,12 @@ import java.util.Set;
 @Table(name = "product_category")
 @Getter @Setter
 @NoArgsConstructor
-public class Category extends BaseEntity {
+public class Category {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "name")
     private String name;
