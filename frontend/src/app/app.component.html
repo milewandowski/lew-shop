@@ -19,19 +19,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-2">
-        <div>
-          <h2>Categories</h2>
-        </div>
-        <!-- Temporary hard-coded (TODO) -->
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a routerLink="/category/1" class="nav-link">Books</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/category/2" class="nav-link">Maps</a>
-          </li>
-        </ul>
-        <!-- --- -->
+        <app-category-nav></app-category-nav>
       </div>
       <div class="col-md-10">
         <router-outlet></router-outlet>

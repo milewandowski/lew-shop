@@ -1,0 +1,13 @@
+<div>
+    <h2>Categories</h2>
+</div>
+<div>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a routerLink="/category" class="nav-link">All products</a>
+        </li>
+        <li *ngFor="let category of categories" class="nav-item">
+            <a routerLink="/category/{{ category.id }}" class="nav-link">{{ category.name }}</a>
+        </li>
+    </ul>
+</div>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductService } from './services/product.service';
 import { Routes, RouterModule } from '@angular/router';
+import { CategoryNavComponent } from './components/category-nav/category-nav.component';
 
 const routes: Routes = [
   {path: 'category/:id', component: ProductListComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
+    CategoryNavComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
