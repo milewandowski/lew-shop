@@ -5,5 +5,9 @@
             <p class="mb-0">{{ product.name }}</p>
             <p>{{ product.unitPrice | currency:'EUR' }}</p>
         </div>
+
+        <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+            No products found
+        </div>
     </div>
 </div>
