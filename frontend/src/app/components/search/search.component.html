@@ -1,0 +1,9 @@
+<div class="form-inline my-2 my-lg-0">
+
+    <input #keywordInput (keyup.enter)="searchProducts(keywordInput.value)"
+     type="text" placeholder="Search for products" class="form-control mr-sm-2">
+
+    <button (click)="searchProducts(keywordInput.value)"
+     class="btn btn-outline-info my-2 my-sm-0">Search</button>
+
+</div>
