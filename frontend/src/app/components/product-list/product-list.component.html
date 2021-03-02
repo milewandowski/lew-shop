@@ -16,8 +16,8 @@
 
         <div class="col-md-8"></div>
         <div class="col-md-4">
-            <ngb-pagination [(page)]="pageNumber" [pageSize]="pageSize"
-            [collectionSize]="totalElements" (pageChange)="listProducts()">
+            <ngb-pagination [(page)]="pageNumber" [pageSize]="pageSize" [maxSize]="5"
+            [boundaryLinks]="true" [collectionSize]="totalElements" (pageChange)="listProducts()">
             </ngb-pagination>
         </div>
 
