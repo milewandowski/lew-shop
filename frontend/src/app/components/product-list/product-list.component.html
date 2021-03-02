@@ -13,5 +13,13 @@
         <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
             No products found
         </div>
+
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <ngb-pagination [(page)]="pageNumber" [pageSize]="pageSize"
+            [collectionSize]="totalElements" (pageChange)="listProducts()">
+            </ngb-pagination>
+        </div>
+
     </div>
 </div>

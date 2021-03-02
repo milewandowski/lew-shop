@@ -10,10 +10,15 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products: Product[];
-  currentCategoryId: number;
-  searchMode: boolean;
+  products: Product[] = [];
+  currentCategoryId: number = 0;
+  previousCategoryId: number = 0;
+  searchMode: boolean = false;
 
+  pageNumber: number = 1;
+  pageSize: number = 10;
+  totalElements: number = 0;
+  
   constructor(private productService: ProductService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -39,11 +44,23 @@ export class ProductListComponent implements OnInit {
       this.currentCategoryId = 0;
     }
 
-    this.productService.getProductListByCategoryId(this.currentCategoryId).subscribe(
-      data => {
-        this.products = data;
-      }
-    )
+    if(this.previousCategoryId != this.currentCategoryId) {
+      this.pageNumber = 1;
+    }
+
+    this.previousCategoryId = this.currentCategoryId;
+
+    this.productService.getProductListPaginate(this.pageNumber - 1, this.pageSize, this.currentCategoryId)
+                                              .subscribe(this.processResult());
+  }
+
+  processResult() {
+    return data => {
+      this.products = data._embedded.product;
+      this.pageNumber = data.page.number + 1;
+      this.pageSize = data.page.size;
+      this.totalElements = data.page.totalElements;
+    }
   }
 
   handleSearchProducts() {
