@@ -38,8 +38,14 @@ export class ProductService {
 
   getProductListPaginate(pageNumber: number, pageSize: number,
     categoryId: number): Observable<GetResponseProduct> {
-      const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryId}&page=${pageNumber}&size=${pageSize}`;
 
+      let searchUrl: string;
+      if(categoryId == 0) {
+        searchUrl = `${this.baseUrl}?page=${pageNumber}&size=${pageSize}`;
+      } else {
+        searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryId}&page=${pageNumber}&size=${pageSize}`;
+      }
+     
       return this.httpClient.get<GetResponseProduct>(searchUrl);
     }
 
