@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { exists } from 'node:fs';
 import { Subject } from 'rxjs';
 import { CartItem } from '../common/cart-item';
 
@@ -19,12 +18,7 @@ export class CartService {
     let existingCartItem: CartItem = undefined;
 
     if(this.cartItems.length > 0) {
-      for(let tempCartItem of this.cartItems) {
-        if(tempCartItem.id === cartItem.id) {
-          existingCartItem = tempCartItem;
-          break;
-        }
-      }
+      existingCartItem = this.cartItems.find(tempCartItem => tempCartItem.id === cartItem.id);
       alreadyInCart = (existingCartItem != undefined);
     }
 
