@@ -10,6 +10,7 @@ export class CartService {
   cartItems: CartItem[] = [];
 
   totalQuantity: Subject<number> = new Subject<number>();
+  totalPrice: Subject<number> = new Subject<number>();
 
   constructor() { }
 
@@ -33,12 +34,15 @@ export class CartService {
 
   computeCartTotals() {
     let totalQuantityValue: number = 0;
+    let totalPriceValue: number = 0;
 
     for(let currentCartItem of this.cartItems) {
       totalQuantityValue += currentCartItem.quantity;
+      totalPriceValue += (currentCartItem.quantity * currentCartItem.unitPrice);
     }
 
     this.totalQuantity.next(totalQuantityValue);
+    this.totalPrice.next(totalPriceValue);
   }
 
 }
