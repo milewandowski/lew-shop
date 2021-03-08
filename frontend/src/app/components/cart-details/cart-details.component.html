@@ -6,6 +6,7 @@
                 <th>Product Name</th>
                 <th>Quantity</th>
                 <th>Price</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +25,11 @@
                     </button>
                 </td>
                 <td>{{ tempCartItem.unitPrice * tempCartItem.quantity | currency:'EUR'}}</td>
+                <td>
+                    <button (click)="removeProductFromCart(tempCartItem)" class="btn btn-info">
+                        Remove Item
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>

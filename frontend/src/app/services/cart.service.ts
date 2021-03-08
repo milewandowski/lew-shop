@@ -39,6 +39,15 @@ export class CartService {
     this.computeCartTotals();
   }
 
+  removeFromCart(cartItem: CartItem) {
+    const cartItemIndex: number = this.cartItems.findIndex(item => item.id === cartItem.id);
+
+    if(cartItemIndex != -1) {
+      this.cartItems.splice(cartItemIndex, 1);
+      this.computeCartTotals();
+    }
+  }
+
   computeCartTotals() {
     let totalQuantityValue: number = 0;
     let totalPriceValue: number = 0;
