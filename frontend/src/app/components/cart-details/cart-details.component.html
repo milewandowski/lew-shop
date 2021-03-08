@@ -15,10 +15,10 @@
                 </td>
                 <td>{{ tempCartItem.name }}</td>
                 <td>{{ tempCartItem.quantity }}</td>
-                <td>{{ tempCartItem.unitPrice * tempCartItem.quantity }}</td>
+                <td>{{ tempCartItem.unitPrice * tempCartItem.quantity | currency:'EUR'}}</td>
             </tr>
         </tbody>
     </table>
-    <p>Total Price: {{ totalPrice }}</p>
+    <p>Total Price: {{ totalPrice | currency:'EUR'}}</p>
 </div>
 <ng-template #elseBlock>Cart is empty!</ng-template>
