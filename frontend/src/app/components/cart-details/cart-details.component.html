@@ -1,8 +1,24 @@
-<p>{{ totalPrice }}</p>
-<p>{{ totalQuantity }}</p>
-
-<div *ngFor="let tempCartItem of cartItems">
-    <p>{{ tempCartItem.name }}</p>
-    <p>{{ tempCartItem.unitPrice }}</p>
-    <p>{{ tempCartItem.quantity }}</p>
+<div *ngIf="cartItems?.length > 0; else elseBlock" class="tab">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tempCartItem of cartItems">
+                <td>
+                    <img src="{{ tempCartItem.imageUrl }}">
+                </td>
+                <td>{{ tempCartItem.name }}</td>
+                <td>{{ tempCartItem.quantity }}</td>
+                <td>{{ tempCartItem.unitPrice * tempCartItem.quantity }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Total Price: {{ totalPrice }}</p>
 </div>
+<ng-template #elseBlock>Cart is empty!</ng-template>
