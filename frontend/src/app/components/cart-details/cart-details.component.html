@@ -14,7 +14,15 @@
                     <img src="{{ tempCartItem.imageUrl }}">
                 </td>
                 <td>{{ tempCartItem.name }}</td>
-                <td>{{ tempCartItem.quantity }}</td>
+                <td>
+                    <button (click)="decrementProductQuantity(tempCartItem)" class="btn btn-sm">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <span>{{ tempCartItem.quantity }}</span>
+                    <button (click)="incrementProductQuantity(tempCartItem)" class="btn btn-sm">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </td>
                 <td>{{ tempCartItem.unitPrice * tempCartItem.quantity | currency:'EUR'}}</td>
             </tr>
         </tbody>

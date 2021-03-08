@@ -32,6 +32,13 @@ export class CartService {
     this.computeCartTotals();
   }
 
+  decrementQuantity(cartItem: CartItem) {
+    if(cartItem.quantity > 1) {
+      cartItem.quantity--;
+    }
+    this.computeCartTotals();
+  }
+
   computeCartTotals() {
     let totalQuantityValue: number = 0;
     let totalPriceValue: number = 0;
