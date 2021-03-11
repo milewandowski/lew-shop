@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Country } from 'src/app/common/country';
+import { CheckoutFormService } from 'src/app/services/checkout-form.service';
 
 @Component({
   selector: 'app-checkout',
@@ -10,9 +12,24 @@ export class CheckoutComponent implements OnInit {
 
   checkoutFormGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  countries: Country[] = [];
+
+  constructor(private formBuilder: FormBuilder, private checkoutFormService: CheckoutFormService) { }
 
   ngOnInit(): void {
+    this.createCheckoutFormGroup();
+    this.listCountries();
+  }
+
+  listCountries() {
+    this.checkoutFormService.getCountries().subscribe(
+      data => {
+        this.countries = data;
+      }
+    )
+  }
+
+  createCheckoutFormGroup() {
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
         firstName: [''],
