@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Country } from 'src/app/common/country';
 import { CheckoutFormService } from 'src/app/services/checkout-form.service';
 
@@ -32,22 +32,23 @@ export class CheckoutComponent implements OnInit {
   createCheckoutFormGroup() {
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
-        firstName: [''],
-        lastName: [''],
-        email: [''],
-        phoneNumber: ['']
+        firstName: new FormControl('', [Validators.required]),
+        lastName: new FormControl('', [Validators.required]),
+        email: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,4}$')]),
+        phoneNumber: new FormControl('', [Validators.required,
+          Validators.pattern('(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})')])
       }),
       shippingAddress: this.formBuilder.group({
-        street: [''],
-        city: [''],
-        zipCode: [''],
-        country: ['']
+        street: new FormControl('', [Validators.required]),
+        city: new FormControl('', [Validators.required]),
+        zipCode: new FormControl('', [Validators.required]),
+        country: new FormControl('', [Validators.required])
       }),
       billingAddress: this.formBuilder.group({
-        street: [''],
-        city: [''],
-        zipCode: [''],
-        country: ['']
+        street: new FormControl('', [Validators.required]),
+        city: new FormControl('', [Validators.required]),
+        zipCode: new FormControl('', [Validators.required]),
+        country: new FormControl('', [Validators.required])
       })
     });
   }
