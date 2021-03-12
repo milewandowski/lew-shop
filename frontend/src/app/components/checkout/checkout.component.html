@@ -7,18 +7,44 @@
 
             <div class="form-group">
                 <input formControlName="firstName" type="text" placeholder="First Name" class="form-control">
+                <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                    <p *ngIf="firstName.errors.required || firstName.errors.notOnlyWhitespace" class="text-danger">
+                        First Name is required
+                    </p>
+                </div>
             </div>
 
             <div class="form-group">
                 <input formControlName="lastName" type="text" placeholder="Last Name" class="form-control">
+                <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                    <p *ngIf="lastName.errors.required || firstName.errors.notOnlyWhitespace" class="text-danger">
+                        Last Name is required
+                    </p>
+                </div>
             </div>
 
             <div class="form-group">
                 <input formControlName="email" type="email" placeholder="Email" class="form-control">
+                <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <p *ngIf="email.errors.required" class="text-danger">
+                        Email is required
+                    </p>
+                    <p *ngIf="email.errors.pattern" class="text-danger">
+                        Email must be a valid email address format
+                    </p>
+                </div>
             </div>
 
             <div class="form-group">
                 <input formControlName="phoneNumber" type="text" placeholder="Phone Number" class="form-control">
+                <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+                    <p *ngIf="phoneNumber.errors.required" class="text-danger">
+                        Phone Number is required
+                    </p>
+                    <p *ngIf="phoneNumber.errors.pattern" class="text-danger">
+                        Phone Number must be a valid phone number format with dialing code
+                    </p>
+                </div>
             </div>
 
         </div>
@@ -28,24 +54,45 @@
 
             <div class="form-group">
                 <input formControlName="street" type="text" placeholder="Street, house number, flat number" class="form-control">
+                <div *ngIf="shippingAddressStreet.invalid && (shippingAddressStreet.dirty || shippingAddressStreet.touched)">
+                    <p *ngIf="shippingAddressStreet.errors.required || shippingAddressStreet.errors.notOnlyWhitespace" class="text-danger">
+                        Street is required
+                    </p>
+                </div>
             </div>
 
             <div class="form-row">
 
                 <div class="form-group col-md-6">
                     <input formControlName="city" type="text" placeholder="City" class="form-control">
+                    <div *ngIf="shippingAddressCity.invalid && (shippingAddressCity.dirty || shippingAddressCity.touched)">
+                        <p *ngIf="shippingAddressCity.errors.required || shippingAddressCity.errors.notOnlyWhitespace" class="text-danger">
+                            City is required
+                        </p>
+                    </div>
                 </div>
 
                 <div class="form-group col-md-4">
                     <select formControlName="country" class="form-control">
+                        <option value="" disabled selected>Country</option>
                         <option *ngFor="let country of countries" [ngValue]="country">
                             {{ country.name }}
                         </option>
                     </select>
+                    <div *ngIf="shippingAddressCountry.invalid && (shippingAddressCountry.dirty || shippingAddressCountry.touched)">
+                        <p *ngIf="shippingAddressCountry.errors.required" class="text-danger">
+                            Country is required
+                        </p>
+                    </div>
                 </div>
 
                 <div class="form-group col-md-2">
                     <input formControlName="zipCode" type="text" placeholder="Zip" class="form-control">
+                    <div *ngIf="shippingAddressZipCode.invalid && (shippingAddressZipCode.dirty || shippingAddressZipCode.touched)">
+                        <p *ngIf="shippingAddressZipCode.errors.required || shippingAddressZipCode.errors.notOnlyWhitespace" class="text-danger">
+                            Zip Code is required
+                        </p>
+                    </div>
                 </div>
 
             </div>
@@ -68,24 +115,45 @@
 
             <div class="form-group">
                 <input formControlName="street" type="text" placeholder="Street, house number, flat number" class="form-control">
+                <div *ngIf="billingAddressStreet.invalid && (billingAddressStreet.dirty || billingAddressStreet.touched)">
+                    <p *ngIf="billingAddressStreet.errors.required || billingAddressStreet.errors.notOnlyWhitespace" class="text-danger">
+                        Street is required
+                    </p>
+                </div>
             </div>
 
             <div class="form-row">
 
                 <div class="form-group col-md-6">
                     <input formControlName="city" type="text" placeholder="City" class="form-control">
+                    <div *ngIf="billingAddressCity.invalid && (billingAddressCity.dirty || billingAddressCity.touched)">
+                        <p *ngIf="billingAddressCity.errors.required || billingAddressCity.errors.notOnlyWhitespace" class="text-danger">
+                            City is required
+                        </p>
+                    </div>
                 </div>
 
                 <div class="form-group col-md-4">
                     <select formControlName="country" class="form-control">
+                        <option value="" disabled selected>Country</option>
                         <option *ngFor="let country of countries" [ngValue]="country">
                             {{ country.name }}
                         </option>
                     </select>
+                    <div *ngIf="billingAddressCountry.invalid && (billingAddressCountry.dirty || billingAddressCountry.touched)">
+                        <p *ngIf="billingAddressCountry.errors.required" class="text-danger">
+                            Country is required
+                        </p>
+                    </div>
                 </div>
 
                 <div class="form-group col-md-2">
                     <input formControlName="zipCode" type="text" placeholder="Zip" class="form-control">
+                    <div *ngIf="billingAddressZipCode.invalid && (billingAddressZipCode.dirty || billingAddressZipCode.touched)">
+                        <p *ngIf="billingAddressZipCode.errors.required || billingAddressZipCode.errors.notOnlyWhitespace" class="text-danger">
+                            Zip Code is required
+                        </p>
+                    </div>
                 </div>
 
             </div>
