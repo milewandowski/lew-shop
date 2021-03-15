@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Country } from 'src/app/common/country';
+import { CartService } from 'src/app/services/cart.service';
 import { CheckoutFormService } from 'src/app/services/checkout-form.service';
 import { LewshopValidators } from 'src/app/validators/lewshop-validators';
 
@@ -15,11 +16,27 @@ export class CheckoutComponent implements OnInit {
 
   countries: Country[] = [];
 
-  constructor(private formBuilder: FormBuilder, private checkoutFormService: CheckoutFormService) { }
+  totalQuantity: number = 0;
+  totalPrice: number = 0;
+
+  constructor(private formBuilder: FormBuilder, 
+    private checkoutFormService: CheckoutFormService,
+    private cartService: CartService) { }
 
   ngOnInit(): void {
     this.createCheckoutFormGroup();
     this.listCountries();
+    this.reviewCartDetails();
+  }
+
+  reviewCartDetails() {
+    this.cartService.totalQuantity.subscribe(
+      totalQuantity => this.totalQuantity = totalQuantity
+    );
+
+    this.cartService.totalPrice.subscribe(
+      totalPrice => this.totalPrice = totalPrice
+    );
   }
 
   listCountries() {
