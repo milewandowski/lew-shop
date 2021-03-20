@@ -1,11 +1,14 @@
 <div class="container-fluid">
+    <div>
+        <app-category-nav></app-category-nav>
+    </div>
     <div class="row">
         <div class="col-lg-4 col-md-6 mb-5 text-center" *ngFor="let product of products">
             <a routerLink="/product/{{ product.id }}">
                 <img src="{{ product.imageUrl }}">
             </a>
             <a routerLink="/product/{{ product.id }}">
-                <p class="mb-0">{{ product.name }}</p>
+                <p class="mb-0 product-title-link">{{ product.name }}</p>
             </a>
             <p>{{ product.unitPrice | currency:'EUR' }}</p>
         </div>
@@ -16,8 +19,8 @@
 
         <div class="col-md-8"></div>
         <div class="col-md-4">
-            <ngb-pagination [(page)]="pageNumber" [pageSize]="pageSize" [maxSize]="5"
-            [boundaryLinks]="true" [collectionSize]="totalElements" (pageChange)="listProducts()">
+            <ngb-pagination [(page)]="pageNumber" [pageSize]="pageSize" [maxSize]="5" [boundaryLinks]="true"
+                [collectionSize]="totalElements" (pageChange)="listProducts()">
             </ngb-pagination>
         </div>
 

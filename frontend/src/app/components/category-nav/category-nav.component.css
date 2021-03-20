@@ -1,0 +1,14 @@
+.nav-category {
+    padding-bottom: 40px;
+}
+
+.category-link {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.category-link:hover {
+    transition: 0.35s;
+    color: #17A2B8;
+    text-decoration: none;
+}

@@ -1,13 +1,8 @@
-<div>
-    <h2>Categories</h2>
-</div>
-<div>
-    <ul class="nav flex-column">
-        <li class="nav-item">
-            <a routerLink="/category" class="nav-link">All products</a>
-        </li>
-        <li *ngFor="let category of categories" class="nav-item">
-            <a routerLink="/category/{{ category.id }}" class="nav-link">{{ category.name }}</a>
-        </li>
-    </ul>
+<div class="row nav-category">
+    <div class="col-md-3 pb-4 text-center">
+        <a routerLink="/category" class="category-link">All Products</a>
+    </div>
+    <div *ngFor="let category of categories" class="col-md-3 pb-4 text-center">
+        <a routerLink="/category/{{ category.id }}" class="category-link">{{ category.name }}</a>
+    </div>
 </div>
