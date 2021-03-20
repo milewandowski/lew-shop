@@ -2,3 +2,18 @@
     font-size: 1.5rem;
     text-decoration: line-through;
 }
+
+.fot {
+    padding-top: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 0.5;
+    color: #333;
+    background-color: #F8F9FA;
+}
+
+.wrapper {
+    padding-bottom: 40px;
+}

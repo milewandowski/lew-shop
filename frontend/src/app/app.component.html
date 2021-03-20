@@ -14,17 +14,31 @@
         <li class="nav-item">
           <app-cart-status></app-cart-status>
         </li>
-    </ul>
+      </ul>
     </div>
   </div>
 </nav>
-
-<div class="wrapper pt-5 pb-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <router-outlet></router-outlet>
+<div class="wrapper">
+  <div class="pt-5 pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <router-outlet></router-outlet>
+        </div>
       </div>
     </div>
   </div>
+
+  <footer class="footer fixed-bottom fot mt-5">
+    <div class="container-fluid">
+      <div class="row text-center">
+        <div class="col">
+          <p> Copyrights &copy; 2021</p>
+        </div>
+        <div class="col">
+          <p>Michal Lewandowski</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>
