@@ -1,9 +1,9 @@
 <div class="form-inline mx-auto order-0">
 
     <input #keywordInput (keyup.enter)="searchProducts(keywordInput.value)"
-     type="text" placeholder="Search for products" class="form-control mr-sm-2">
+     type="text" placeholder="Search for products" id="searchTextField">
 
     <button (click)="searchProducts(keywordInput.value)"
-     class="btn btn-outline-info my-2 my-sm-0">Search</button>
+     class="btn mr-2"><i class="fas fa-search"></i></button>
 
 </div>

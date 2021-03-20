@@ -1,6 +1,6 @@
-<div>
-    <a routerLink="/cart-details">
+<div id="cartStatusWrap">
+    <a routerLink="/cart-details" id="cartDetailsLink">
         <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-        <span>{{ totalQuantity }}</span>
+        <span *ngIf="totalQuantity > 0" id="quantity">{{ totalQuantity }}</span>
     </a>
 </div>

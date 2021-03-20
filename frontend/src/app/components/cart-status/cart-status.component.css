@@ -1,0 +1,16 @@
+#cartStatusWrap {
+    margin: 6px 6px 0 35px;
+}
+
+#cartDetailsLink {
+    color: #333;
+}
+
+#cartDetailsLink:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+#quantity {
+    padding-left: 5px;
+}
