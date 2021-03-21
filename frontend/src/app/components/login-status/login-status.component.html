@@ -1,0 +1,4 @@
+<div id="loginStatusWrap">
+    <button *ngIf="!isAuthenticated" routerLink="/login" class="btn"><i class="fas fa-user-alt"></i></button>
+    <button *ngIf="isAuthenticated" (click)="logout()" class="btn"><i class="fas fa-sign-out-alt"></i></button>
+</div>
