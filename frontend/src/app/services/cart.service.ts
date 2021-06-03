@@ -12,6 +12,8 @@ export class CartService {
   totalQuantity: Subject<number> = new BehaviorSubject<number>(0);
   totalPrice: Subject<number> = new BehaviorSubject<number>(0);
 
+  orderTrackingNumber: string = "";
+
   constructor() { }
 
   addToCart(cartItem: CartItem) {

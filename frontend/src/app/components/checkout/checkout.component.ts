@@ -117,8 +117,8 @@ export class CheckoutComponent implements OnInit {
 
     this.checkoutService.placeOrder(purchase).subscribe({
         next: response => {
-          alert(`Your order has been received. \nOrder tracking number: ${response.orderTrackingNumber}`);
-          this.resetCart();
+          // alert(`Your order has been received. \nOrder tracking number: ${response.orderTrackingNumber}`);
+          this.resetCart(response.orderTrackingNumber);
         },
         error: err => {
           alert(`Error occured. Your order has not been received.`);
@@ -127,14 +127,15 @@ export class CheckoutComponent implements OnInit {
     );
   }
 
-  resetCart() {
+  resetCart(orderTrackingNumber: string) {
     this.cartService.cartItems = [];
     this.cartService.totalPrice.next(0);
     this.cartService.totalQuantity.next(0);
+    this.cartService.orderTrackingNumber = orderTrackingNumber;
 
     this.checkoutFormGroup.reset();
 
-    this.router.navigateByUrl("/product");
+    this.router.navigateByUrl("/order");
   }
 
   get firstName() { return this.checkoutFormGroup.get('customer.firstName'); }

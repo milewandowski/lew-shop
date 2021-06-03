@@ -16,7 +16,7 @@ export class ProductListComponent implements OnInit {
   searchMode: boolean = false;
 
   pageNumber: number = 1;
-  pageSize: number = 12;
+  pageSize: number = 9;
   totalElements: number = 0;
 
   previousKeyword: string = null;

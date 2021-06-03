@@ -12,6 +12,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CategoryNavComponent } from './components/category-nav/category-nav.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { OrderPlacedComponent } from './components/order-placed/order-placed.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
+  {path: 'order', component: OrderPlacedComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'product/:id', component: ProductDetailsComponent},
@@ -40,6 +42,7 @@ const routes: Routes = [
     CartStatusComponent,
     CartDetailsComponent,
     CheckoutComponent,
+    OrderPlacedComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
