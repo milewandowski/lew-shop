@@ -35,6 +35,8 @@ public class CheckoutServiceImpl implements CheckoutService {
         String orderTrackingNumber = generateOrderTrackingNumber();
         order.setOrderTrackingNumber(orderTrackingNumber);
 
+        order.setStatus("Placed");
+
         Customer customer = purchase.getCustomer();
         customer.addOrder(order);
 

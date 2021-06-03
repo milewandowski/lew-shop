@@ -1,0 +1,17 @@
+#searchTextField {
+    background-color: transparent;
+    border: none;
+    border-bottom: solid #999;
+    width: 75%;
+}
+
+#searchTextField:focus {
+    transition: 1s;
+    outline: none;
+    border-bottom: solid #000;
+}
+
+.warning {
+    font-size: 0.8rem;
+    font-style: italic;
+}

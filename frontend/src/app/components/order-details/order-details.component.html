@@ -1,0 +1,25 @@
+<h2 class="pb-3">Find out what's currently happening with your order!</h2>
+
+<input #keywordInput (keyup.enter)="findOrderByTrackingNumber(keywordInput.value)"
+type="text" placeholder="Order tracking number should go here!" id="searchTextField">
+
+<button (click)="findOrderByTrackingNumber(keywordInput.value)"
+class="btn mr-2"><i class="fa fa-search"></i></button>
+
+<div *ngIf="orderDetails" class="card mt-5">
+    <h5 class="card-header">Order number: {{ orderDetails.orderTrackingNumber }}</h5>
+    <div class="card-body">
+      <h5 class="card-title">Status: {{ orderDetails.status }}</h5>
+      <p class="card-text">Order date: {{ orderDetails.dateCreated | date: 'dd/MM/yyyy'}}</p>
+      <p class="card-text">Total quantity: {{ orderDetails.totalQuantity }}</p>
+      <p class="card-text">Total price: {{ orderDetails.totalPrice | currency:'EUR' }}</p>
+      <button *ngIf="orderDetails.status==='Placed' || orderDetails.status==='Ready'"
+      (click)="cancelOrder(orderDetails.id, orderDetails.orderTrackingNumber)" class="btn btn-info">Cancel order</button>
+      <p class="warning pt-3">Note that you can only cancel your order if order status is: "Placed" or "Ready"</p>
+    </div>
+</div>
+
+<div *ngIf="searchFlag && !orderDetails" class="mt-5">
+  <h3>Order not found!</h3>
+  <p>Please check if provided order number is correct.</p>
+</div>

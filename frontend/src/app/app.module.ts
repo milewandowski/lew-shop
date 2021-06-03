@@ -18,8 +18,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { OrderCanceledComponent } from './components/order-canceled/order-canceled.component';
 
 const routes: Routes = [
+  {path: 'order-canceled', component: OrderCanceledComponent},
+  {path: 'order-details', component: OrderDetailsComponent},
   {path: 'order', component: OrderPlacedComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'cart-details', component: CartDetailsComponent},
@@ -43,6 +47,8 @@ const routes: Routes = [
     CartDetailsComponent,
     CheckoutComponent,
     OrderPlacedComponent,
+    OrderDetailsComponent,
+    OrderCanceledComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
