@@ -1,4 +1,6 @@
+<div class="container">
 <div *ngIf="cartItems?.length > 0; else elseBlock" class="tab">
+    <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
@@ -33,8 +35,10 @@
             </tr>
         </tbody>
     </table>
+    </div>
     <hr>
     <p>Total Price: {{ totalPrice | currency:'EUR'}}</p>
     <a routerLink="/checkout" class="btn btn-info">Checkout</a>
 </div>
 <ng-template #elseBlock> <h2>Cart is empty!</h2> </ng-template>
+</div>
